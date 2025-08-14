@@ -1,0 +1,22 @@
+name: Test GitHub Runner
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show system info
+        run: |
+          uname -a
+          lsb_release -a || cat /etc/os-release
+          echo "Current directory:" && pwd
+          echo "Files in repo:" && ls -la
